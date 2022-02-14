@@ -8,3 +8,11 @@ https://github.com/Annie-Huang/useswr-tutorial
 
 PS C:\react> npx create-next-app -e https://github.com/Dey-Sumit/useSWR-Tutorial/tree/starter useSWR-Tutorial
 
+PS C:\react\useswr-tutorial> npm run dev
+
+PS C:\react\useswr-tutorial> npm run json-server
+http://localhost:3001
+http://localhost:3001/posts
+http://localhost:3001/comments
+http://localhost:3001/posts?_sort=createdAt&_order=desc
+http://localhost:3001/posts/1/comments?_sort=createdAt&_order=desc
