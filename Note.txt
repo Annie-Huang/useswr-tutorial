@@ -1,0 +1,10 @@
+[ 1 ] Data Fetching using SWR Hook with Next Js | React | Why SWR?
+(https://www.youtube.com/watch?v=7fsJcHb5qzs&t=146s)
+
+https://github.com/Dey-Sumit/useSWR-Tutorial/tree/starter
+https://github.com/Annie-Huang/useswr-tutorial
+
+==========================================================================
+
+PS C:\react> npx create-next-app -e https://github.com/Dey-Sumit/useSWR-Tutorial/tree/starter useSWR-Tutorial
+
