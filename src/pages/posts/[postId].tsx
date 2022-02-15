@@ -2,11 +2,14 @@ import CreateComment from '@components/CreateComment';
 import CommentCard from '@components/CommentCard';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 const index = () => {
   const {
     query: { postId },
   } = useRouter();
+
+  const [comments, setComments] = useState(null);
 
   const getPost = () => {};
 
@@ -14,7 +17,12 @@ const index = () => {
     const { data } = await axios.get(
       `/posts/${postId}/comments?_sort=createdAt&_order=desc`
     );
+    setComments(data);
   };
+
+  useEffect(() => {
+    postId && getComments();
+  }, [postId]);
 
   return (
     <div>
