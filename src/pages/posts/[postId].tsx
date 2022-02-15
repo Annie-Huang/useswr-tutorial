@@ -3,13 +3,15 @@ import CommentCard from '@components/CommentCard';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { IComment } from '@libs/types';
+import Loader from '@components/Loader';
 
 const index = () => {
   const {
     query: { postId },
   } = useRouter();
 
-  const [comments, setComments] = useState(null);
+  const [comments, setComments] = useState<IComment[]>(null);
 
   const getPost = () => {};
 
@@ -30,8 +32,11 @@ const index = () => {
       <CreateComment />
 
       <h4>Comments</h4>
-      {[...new Array(5)].map((_, i) => (
-        <CommentCard key={i} />
+
+      {!comments && <Loader />}
+
+      {comments?.map((comment) => (
+        <CommentCard key={comment.id} {...comment} />
       ))}
     </div>
   );
