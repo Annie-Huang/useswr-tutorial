@@ -1,15 +1,24 @@
-import CreateComment from "@components/CreateComment";
-import CommentCard from "@components/CommentCard";
-import PostCard from "@components/PostCard";
+import CreateComment from '@components/CreateComment';
+import CommentCard from '@components/CommentCard';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const index = () => {
+  const {
+    query: { postId },
+  } = useRouter();
+
   const getPost = () => {};
 
-  const getComments = () => {};
+  const getComments = async () => {
+    const { data } = await axios.get(
+      `/posts/${postId}/comments?_sort=createdAt&_order=desc`
+    );
+  };
 
   return (
     <div>
-      <PostCard />
+      {/*<PostCard />*/}
       <CreateComment />
 
       <h4>Comments</h4>
