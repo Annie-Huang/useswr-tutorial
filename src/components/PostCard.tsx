@@ -6,7 +6,7 @@ const PostCard: FC<IPost> = ({ content, id }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/posts/${1}`);
+    router.push(`/posts/${id}`);
   };
 
   return (
