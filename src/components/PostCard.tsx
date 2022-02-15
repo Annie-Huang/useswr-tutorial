@@ -2,9 +2,7 @@ import { IPost } from '@libs/types';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
-const PostCard: FC<{ data: IPost }> = ({
-  data: { content, createdAt, id },
-}) => {
+const PostCard: FC<IPost> = ({ content, id }) => {
   const router = useRouter();
 
   const handleClick = () => {

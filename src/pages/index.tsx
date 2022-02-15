@@ -26,7 +26,7 @@ export default function Home() {
       {!posts && <Loader />}
 
       {posts?.map((post) => (
-        <PostCard key={post.id} data={post} />
+        <PostCard key={post.id} {...post} />
       ))}
     </div>
   );
