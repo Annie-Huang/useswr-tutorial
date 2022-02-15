@@ -2,6 +2,7 @@ import CreatePost from '@components/CreatePost';
 import PostCard from '@components/PostCard';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Loader from '@components/Loader';
 
 export default function Home() {
   const [posts, setPosts] = useState(null);
@@ -21,6 +22,9 @@ export default function Home() {
       <CreatePost />
 
       <h4>Posts</h4>
+
+      {!posts && <Loader />}
+
       {posts?.map((post) => (
         <PostCard key={post.id} data={post} />
       ))}
