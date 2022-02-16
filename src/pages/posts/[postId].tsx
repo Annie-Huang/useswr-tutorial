@@ -17,7 +17,7 @@ const index = () => {
 
   const getPost = async () => {
     const { data } = await axios.get(
-      '/posts/${postId}?_sort=createdAt&_order=desc'
+      `/posts/${postId}?_sort=createdAt&_order=desc`
     );
     setPost(data);
   };
@@ -36,7 +36,8 @@ const index = () => {
 
   return (
     <div>
-      {/*<PostCard />*/}
+      {!post && <Loader />}
+      {post && <PostCard {...post} />}
       <CreateComment />
 
       <h4>Comments</h4>
