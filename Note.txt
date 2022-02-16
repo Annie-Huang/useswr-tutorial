@@ -16,3 +16,12 @@ http://localhost:3001/posts
 http://localhost:3001/comments
 http://localhost:3001/posts?_sort=createdAt&_order=desc
 http://localhost:3001/posts/1/comments?_sort=createdAt&_order=desc
+
+Problem with no use-swr hook
+- Wait.. It's loading again.
+- Excessive API Query
+- If it fails, it fails
+- Props drilling for mutation
+- No Updates of Data.
+    - Include update on the duplicate page does not reflect to the current page
+    - update directly to the db.json does not reflect to the page.
