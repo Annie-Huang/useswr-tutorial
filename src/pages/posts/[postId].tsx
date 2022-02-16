@@ -3,8 +3,9 @@ import CommentCard from '@components/CommentCard';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { IComment } from '@libs/types';
+import { IComment, IPost } from '@libs/types';
 import Loader from '@components/Loader';
+import PostCard from '@components/PostCard';
 
 const index = () => {
   const {
@@ -12,8 +13,14 @@ const index = () => {
   } = useRouter();
 
   const [comments, setComments] = useState<IComment[]>(null);
+  const [post, setPost] = useState<IPost>(null);
 
-  const getPost = () => {};
+  const getPost = async () => {
+    const { data } = await axios.get(
+      '/posts/${postId}?_sort=createdAt&_order=desc'
+    );
+    setPost(data);
+  };
 
   const getComments = async () => {
     const { data } = await axios.get(
@@ -24,6 +31,7 @@ const index = () => {
 
   useEffect(() => {
     postId && getComments();
+    postId && getPost();
   }, [postId]);
 
   return (
